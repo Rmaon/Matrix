@@ -5,6 +5,8 @@ namespace matrix
 
     public class Npc
     {
+        //Propiedades de Npc, donde DeathP es la posibilidad de muerte, Name el nombre que coge de la lista de nombres dada a continuacion y 
+        //location instancia la clase Location para asiganarsela a cada NPC
         public int DeathP { get; set; }
         public string Name { get; set; }
         public Location location { get; set; }
@@ -12,9 +14,15 @@ namespace matrix
         private static Random random = new Random();
         private static List<string> names = new List<string>
     {
-        "Manolo", "Pepa", "Bartolo", "Rosario",
-        "Antoñito", "Carmen", "Esteban", "Josefa","Michelle", "Alexander", "James", "Caroline",
-        "Claire", "Jessica", "Erik", "Mike"
+            "Manolo", "Pepa", "Bartolo", "Rosario",
+            "Antoñito", "Carmen", "Esteban", "Josefa", "Michelle", "Alexander", "James", "Caroline",
+            "Claire", "Jessica", "Erik", "Mike", "Dolores", "Paco", "Inés", "Fernando",
+            "Isabel", "Juan", "Lola", "Miguel", "Ana", "Francisco", "Teresa", "Carlos",
+            "Pilar", "Javier", "Consuelo", "Pedro", "Catalina", "Luís", "María", "José",
+            "Felipe", "Esperanza", "Alberto", "Beatriz", "Alfonso", "Rosa", "Federico", "Lucía",
+            "Ignacio", "Mercedes", "Victor", "Soledad", "Enrique", "Juana", "Andrés", "Marta",
+            "Ramón", "Blanca", "Gabriel", "Lourdes", "Sergio", "Elena", "Joaquín", "Raquel"
+
     };
 
         public Npc()
@@ -30,7 +38,7 @@ namespace matrix
 
             location = new Location(x,y);
         }
-
+        //ToString con formato de colores
         public override string ToString()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;

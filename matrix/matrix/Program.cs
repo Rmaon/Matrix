@@ -1,4 +1,7 @@
 ﻿using System;
+
+//Creador Ramon, enlace a mi repositorio git: https://github.com/Rmaon/Matrix.git
+
 namespace matrix
 {
 
@@ -46,6 +49,8 @@ namespace matrix
                     Console.WriteLine("Turno nº" + i);
                 }
 
+                //Cada caso es un turno, el default es para los turnos en los que solo se mueven los npc, 10 y 20 son para cuando se mueven Neo y Smith, el 5
+                //y el 15 solo se mueve Neo y en el resto se mueve Smith(En todos ellos se llama al MovimientoNpc() ya que se deben actualizar para ver los que mueren)
                 switch (i)
                 {
                     case 2:
