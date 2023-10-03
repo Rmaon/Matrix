@@ -7,7 +7,7 @@ namespace matrix
 
         public Neo()
         {   
-            //Ya se declara el nimbre como Neo, para que no coja ninguno de la lista
+            //Ya se declara el nombre como Neo, para que no coja ninguno de la lista
             Name = "Neo";
 
             Random random = new Random();

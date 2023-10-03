@@ -1,22 +1,23 @@
 ﻿<Properties StartupConfiguration="{517F2260-C2C0-4F32-88F8-5DC048364EC7}|Default">
   <MonoDevelop.Ide.ItemProperties.matrix PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="matrix/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="matrix/Smith.cs">
     <Files>
-      <File FileName="matrix/Program.cs" Line="38" Column="48" />
-      <File FileName="matrix/Location.cs" Line="43" Column="10" />
-      <File FileName="matrix/Neo.cs" Line="6" Column="35" />
-      <File FileName="matrix/Npc.cs" Line="3" Column="17" />
-      <File FileName="matrix/matrix.cs" Line="234" Column="17" />
-      <File FileName="matrix/NpcFactory.cs" Line="20" Column="1" />
-      <File FileName="matrix/Smith.cs" Line="17" Column="77" />
+      <File FileName="matrix/Program.cs" Line="4" Column="1" />
+      <File FileName="matrix/Location.cs" Line="50" Column="65" />
+      <File FileName="matrix/Neo.cs" Line="16" Column="23" />
+      <File FileName="matrix/Npc.cs" Line="41" Column="42" />
+      <File FileName="matrix/matrix.cs" Line="244" Column="62" />
+      <File FileName="matrix/NpcFactory.cs" Line="18" Column="10" />
+      <File FileName="matrix/Smith.cs" Line="12" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Option id="ShowAllFiles" value="True" />
           <Node name="matrix" expanded="True">
-            <Node name=".vs" selected="True" />
-            <Node name="matrix" expanded="True" />
+            <Node name="matrix" expanded="True">
+              <Node name="Smith.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -25,9 +26,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/ramon/Documentos/GitHub/Matrix/matrix/matrix/matrix.cs" relfile="matrix/matrix.cs" line="267" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
