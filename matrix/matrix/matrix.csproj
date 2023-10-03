@@ -40,7 +40,6 @@
     <Compile Include="Neo.cs" />
     <Compile Include="Npc.cs" />
     <Compile Include="NpcFactory.cs" />
-    <Compile Include="Movimientos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

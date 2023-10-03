@@ -66,7 +66,7 @@ namespace matrix
                                 if (matrixArray[i, j].DeathP >= 7)
                                 {
                                     registro += $"Se ha muerto {matrixArray[i, j].Name} ya que su porcentaje de muerte era demasiado alto.\n";
-
+                                    cont++;
                                     matrixArray[i, j] = new Npc(i, j);
                                 }
                                 else
@@ -81,12 +81,12 @@ namespace matrix
             Console.WriteLine("\n"+registro);
         }
 
-        public void MovimientoSmith()
+        public void MovimientoSmith(bool endgame,int nMaxNpc)
         {
             Random random = new Random();
             String registro=null;
             Boolean xCheck=false,yCheck=false,salirM=true, believe;
-            int xFirst=0, xSmith = 0,yFirst=0, ySmith = 0, xNeo = 0, yNeo = 0, killP=0, deathNeo=0;
+            int xFirst = 0, xSmith = 0, yFirst = 0, ySmith = 0, xNeo = 0, yNeo = 0, killP = 0, deathNeo = 0, localCont = 0; 
 
             for(int i = 0; i < matrixArray.GetLength(0); i++)
             {
@@ -120,87 +120,120 @@ namespace matrix
                     }
                 }
             }
-            do
+            try
             {
-                if (xSmith >= xNeo)
+                do
                 {
-                    xCheck = true;
-                }
-                if (ySmith >= yNeo)
-                {
-                    yCheck = true;
-                }
+                    if (cont == nMaxNpc)
+                    {
+                        Console.Write("Smith ha matado a suficientes ciudadanos, se acaba el juego");
+                        break;
+                    }
 
-                if (xCheck)
-                {
-                    if (xSmith == 0)
+                    if (xSmith >= xNeo)
+                    {
+                        xCheck = true;
+                    }
+                    if (ySmith >= yNeo)
+                    {
+                        yCheck = true;
+                    }
+
+                    if (xCheck)
+                    {
+                        if (xSmith == 0)
+                        {
+                            xSmith++;
+                        }
+                        else
+                        {
+                            xSmith--;
+                        }
+                    }
+                    else
                     {
                         xSmith++;
                     }
-                    else
+
+                    if (yCheck)
                     {
-                        xSmith--;
+
+                        if (ySmith == 0)
+                        {
+                            ySmith++;
+                        }
+                        ySmith--;
                     }
-                }
-                else
-                {
-                    xSmith++;
-                }
-
-                if (yCheck)
-                {
-
-                    if (ySmith==0)
+                    else
                     {
                         ySmith++;
                     }
-                    ySmith--;
-                }
-                else
-                {
-                    ySmith++;
-                }
-                if (matrixArray[xSmith, ySmith] is Neo)
-                {
-                    Neo neoVar = matrixArray[xSmith, ySmith] as Neo;
+                    if (matrixArray[xSmith, ySmith] is Neo)
+                    {
+                        Neo neoVar = matrixArray[xSmith, ySmith] as Neo;
 
-                    if (killP + matrixArray[xSmith, ySmith].DeathP >= 10 && neoVar.Believe)
-                    {
-                        registro += $"Smith ha matado a {matrixArray[xSmith, ySmith].Name}.\n";
-                        cont++;
-                    }
-                }
-                else {
-                    if (matrixArray[xSmith, ySmith] is Npc)
-                    {
-                        if (killP + matrixArray[xSmith, ySmith].DeathP >= 10)
+                        if (killP + matrixArray[xSmith, ySmith].DeathP >= 10 && neoVar.Believe)
                         {
                             registro += $"Smith ha matado a {matrixArray[xSmith, ySmith].Name}.\n";
                             cont++;
+                            endgame = true;
+                            Console.Write("FIN DEL JUEGO");
+                            break;
                         }
                     }
-                    
-                }
-
-
-                if (Math.Abs(xSmith - xNeo) <= 1 && Math.Abs(ySmith - yNeo) <= 1)
-                {
-                    if (matrixArray[xSmith,ySmith] is Npc)
+                    if (matrixArray[xSmith, ySmith] is Smith)
                     {
-                        Npc temp = matrixArray[xSmith, ySmith];
-                        matrixArray[xSmith, ySmith] = matrixArray[xFirst, yFirst];
-                        matrixArray[xFirst, yFirst] = temp;
+                        salirM = false;
                     }
                     else
                     {
-                        matrixArray[xSmith, ySmith] = matrixArray[xFirst, yFirst];
-                        matrixArray[xFirst, yFirst] = null;
+                        if (matrixArray[xSmith, ySmith] is Npc)
+                        {
+                            if (killP + matrixArray[xSmith, ySmith].DeathP >= 10)
+                            {
+                                registro += $"Smith ha matado a {matrixArray[xSmith, ySmith].Name}.\n";
+                                localCont++;
+                                cont++;
+                            }
+                        }
+
                     }
-                    factory.GenerarNpcs(matrixArray, cont);
-                    Console.Write("\n" + registro);
-                    salirM = false;
-                }
-            } while (salirM);
+
+
+                    if (Math.Abs(xSmith - xNeo) <= 1 && Math.Abs(ySmith - yNeo) <= 1)
+                    {
+                        if (matrixArray[xSmith, ySmith] is Npc)
+                        {
+                            Npc temp = matrixArray[xSmith, ySmith];
+                            matrixArray[xSmith, ySmith] = matrixArray[xFirst, yFirst];
+                            matrixArray[xFirst, yFirst] = temp;
+                        }
+                        else
+                        {
+                            matrixArray[xSmith, ySmith] = matrixArray[xFirst, yFirst];
+                            matrixArray[xFirst, yFirst] = null;
+                        }
+
+                        Neo neoVar = matrixArray[xNeo, yNeo] as Neo;
+                        if (killP + matrixArray[xSmith, ySmith].DeathP >= 10 && neoVar.Believe)
+                        {
+                            registro += $"Smith ha matado a {matrixArray[xSmith, ySmith].Name}.\n";
+                            cont++;
+                            endgame = true;
+                            Console.Write("FIN DEL JUEGO");
+                            break;
+                        }
+
+                        factory.GenerarNpcs(matrixArray, localCont);
+                        salirM = false;
+                    }
+                } while (salirM);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
 
             Console.WriteLine("\n" + registro);
         }
