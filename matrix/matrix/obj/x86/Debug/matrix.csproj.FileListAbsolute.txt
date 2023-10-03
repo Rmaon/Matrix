@@ -1,0 +1,6 @@
+/home/ramon/Documentos/GitHub/Matrix/matrix/matrix/bin/Debug/matrix.exe
+/home/ramon/Documentos/GitHub/Matrix/matrix/matrix/bin/Debug/matrix.pdb
+/home/ramon/Documentos/GitHub/Matrix/matrix/matrix/obj/x86/Debug/matrix.csproj.AssemblyReference.cache
+/home/ramon/Documentos/GitHub/Matrix/matrix/matrix/obj/x86/Debug/matrix.csproj.CoreCompileInputs.cache
+/home/ramon/Documentos/GitHub/Matrix/matrix/matrix/obj/x86/Debug/matrix.exe
+/home/ramon/Documentos/GitHub/Matrix/matrix/matrix/obj/x86/Debug/matrix.pdb

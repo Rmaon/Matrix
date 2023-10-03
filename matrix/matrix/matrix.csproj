@@ -34,6 +34,13 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="matrix.cs" />
+    <Compile Include="Smith.cs" />
+    <Compile Include="Neo.cs" />
+    <Compile Include="Npc.cs" />
+    <Compile Include="NpcFactory.cs" />
+    <Compile Include="Movimientos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
